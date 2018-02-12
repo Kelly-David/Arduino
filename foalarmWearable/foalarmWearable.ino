@@ -103,10 +103,7 @@ void loop()
   rf22.send((uint8_t *)buf, zize);
 
   // Keep sending for 500 millis
-  rf22.waitPacketSent(500);
-  // Now wait for a reply
-  uint8_t buf[RH_RF22_MAX_MESSAGE_LEN];
-  uint8_t len = sizeof(buf);
+  rf22.waitPacketSent();  
 
   if (alertSet == 1) {
     // Wait for two minutes before sending any more alerts.
